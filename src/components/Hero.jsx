@@ -5,19 +5,31 @@ import styled from 'styled-components'
 import Navbar from './Navbar'
 
 const Section = styled.div`
-    height: 100vh;
+    height: 100%;
     scroll-snap-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+
+    @media only screen and (max-width:768px) {
+        height: 200vh;
+
+    }
 `
 const Container = styled.div`
-    height: 100vh;
+    height: 100%;
     scroll-snap-align: center;
     width: 1400px;
     display: flex;
     justify-content: space-between;
+
+    @media only screen and (max-width:768px) {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 `
 
 const Left = styled.div`
@@ -26,9 +38,18 @@ const Left = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 20px;
+
+    @media only screen and (max-width:768px) {
+        flex: 1;
+        align-items: center;
+    }
 `
 const Title = styled.h1`
-    font-size: 74px;
+    font-size: 60px;
+
+    @media only screen and (max-width:768px) {
+        text-align: center;
+    }
 `
 const WhatWeDo = styled.div`
     display: flex;
@@ -44,6 +65,11 @@ const Subtitle = styled.h2`
 const Desc = styled.p`
     font-size: 24px;
     color: lightgray;
+
+    @media only screen and (max-width:768px) {
+        padding: 20px;
+        text-align: center;
+    }
 `
 const Button = styled.button`
     background-color: #da4ea2;
@@ -59,6 +85,11 @@ const Button = styled.button`
 const Right = styled.div`
     flex: 3;
     position: relative;
+
+    @media only screen and (max-width:768px) {
+        flex: 1;
+        width: 100%;
+    }
 `
 const Img = styled.img`
     width: 800px;
@@ -71,6 +102,11 @@ const Img = styled.img`
     right: 0;
     margin: auto;
     animation: animate 2s infinite ease alternate;
+
+    @media only screen and (max-width:768px) {
+        width: 300px;
+        height: 300px;
+    }
 
     @keyframes animate {
         to{
@@ -90,7 +126,7 @@ const Hero = () => {
                 <Line src="./img/line.png"/>
                 <Subtitle>What We Do</Subtitle>
             </WhatWeDo>                
-            <Desc>we enjoy creating delightgul, human-centered digital experiences.</Desc>
+            <Desc>할 수있다는 믿음을 가지고 끝까지</Desc>
             <Button>Learn More</Button>
         </Left>
         <Right>
@@ -102,7 +138,7 @@ const Hero = () => {
             {/* 방향성 조명 배열내부의 위치를 제공해야함 */}
             <directionalLight position={[3,2,1]}/>
             {/* 반지름 너비 높이 */}
-            <Sphere args={[1, 100, 200]} scale={2.7}>
+            <Sphere args={[1, 100, 200]} scale={2.2}>
                 <MeshDistortMaterial
                 // distort 왜곡하고싶은 정도
                 color="#400756" 

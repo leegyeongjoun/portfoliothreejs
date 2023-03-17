@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import FrontEnd from './FrontEnd';
 import Development from './Development';
-import WebDesign from './WebDesign';
+import ProductDesign from './ProductDesgin'
 
 const data = [
     "Front-End",
     "Development",
-    "Web Design",
     "Product Design",
+    "Web Design",
     "Social Media",
   ];
 
@@ -18,11 +18,17 @@ const Section = styled.div`
     scroll-snap-align: center;
     display: flex;
     justify-content: center;
+    position: relative;
 `
 const Container = styled.div`
     width: 1400px;
     display: flex;
     justify-content: space-between;
+
+    @media only screen and (max-width:768px) {
+       width: 100%;
+       flex-direction: column;
+    }
 `
 
 const Left = styled.div`
@@ -31,6 +37,10 @@ const Left = styled.div`
     align-items: center;
     justify-content: center;
 
+    @media only screen and (max-width:768px) {
+        padding: 20px;
+        justify-content: center;
+    }
 `
 const List = styled.ul`
   list-style: none;
@@ -45,6 +55,12 @@ const ListItem = styled.li`
   color: transparent;//투명
   -webkit-text-stroke: 1px white; // 빈 배경에 라인이 흰색
   position: relative;
+
+  @media only screen and (max-width:768px) {
+        font-size: 24px;
+        color: white;
+        -webkit-text-stroke: 0px;
+    }
 
   ::after {
     content: "${(props) => props.text}";
@@ -95,7 +111,7 @@ const Works = () => {
             ) : work === "Development" ? 
                 (<Development/>
             ) : (
-                <WebDesign/>
+                <ProductDesign/>
             )}
         </Right>
       </Container>
